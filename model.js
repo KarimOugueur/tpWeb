@@ -9,9 +9,7 @@ function Drawing(){
     this.forms.push(form);
   }.bind(this) ;
 
-
 }
-
 
 function MyForm(initX,initY,finalX,finalY,epaisseur,couleur) {
   this.initX = initX;

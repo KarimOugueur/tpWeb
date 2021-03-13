@@ -11,7 +11,7 @@
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
 
 MyForm.prototype.clear = function(ctx) {
-  canvas.getContext('2d').fillStyle = '#F0F0F0'; // set canvas' background color
+ // canvas.getContext('2d').fillStyle = '#F0F0F0'; 
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
 

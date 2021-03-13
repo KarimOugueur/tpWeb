@@ -2,7 +2,7 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
-canvas.width = 800
+canvas.width = 1000
 canvas.height = 600
 
 // Code temporaire pour tester le DnD
