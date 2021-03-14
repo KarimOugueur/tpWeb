@@ -35,7 +35,7 @@ function DnD(boundingObject, interactor) {
 	  this.pression = true;
 	  this.initX = getMousePosition(this.boundingObject,evt).x;
 	  this.initY = getMousePosition(this.boundingObject,evt).y;
-	  this.interactor.onInteractionStart(this);
+	  this.interactor.interactionStart(this);
   
 	}.bind(this) ;
   
@@ -43,7 +43,7 @@ function DnD(boundingObject, interactor) {
 	  if (this.pression){
 		this.finalX = getMousePosition(this.boundingObject,evt).x;
 		this.finalY = getMousePosition(this.boundingObject,evt).y;
-		this.interactor.onInteractionUpdate(this);
+		this.interactor.interactionUpDate(this);
 	  }
   
 	}.bind(this) ;
@@ -53,7 +53,7 @@ function DnD(boundingObject, interactor) {
 	  this.pression = false;
 	  this.finalX = getMousePosition(this.boundingObject,evt).x;
 	  this.finalY = getMousePosition(this.boundingObject,evt).y;
-	  this.interactor.onInteractionEnd(this);
+	  this.interactor.interactionEnd(this);
 	}.bind(this) ;
   
   
