@@ -14,15 +14,14 @@ function Pencil(ctx, drawing, canvas) {
 		if (document.getElementById("butRect").checked) {
 			this.currentShape = new Rectangle(dnd.initX, dnd.initY, dnd.finalX, dnd.finalY,
 				document.getElementById("spinnerWidth").value, document.getElementById("colour").value);
-				Rectangle.updateShapeList(this.currentShape)	
+
 		} else {
 			this.currentShape = new Line(dnd.initX, dnd.initY, dnd.finalX, dnd.finalY,
 				document.getElementById("spinnerWidth").value, document.getElementById("colour").value);
-				Line.updateShapeList(this.currentShape); 
-		}
-		
-	}.bind(this);
 
+		}
+
+	}.bind(this);
 
 	this.interactionUpDate = function (dnd) {
 		if (this.currentShape != 0) {
@@ -39,8 +38,8 @@ function Pencil(ctx, drawing, canvas) {
 		this.currentShape.finalY = dnd.finalY;
 		this.currentShape.paint(this.ctx);
 		drawing.addForms(this.currentShape);
-		drawing.paint(this.ctx);
-		
+		drawing.paint(this.ctx.currentShape);
+	//	drawing.updateShapeList(this.currentShape);
 
 	}.bind(this);
 
