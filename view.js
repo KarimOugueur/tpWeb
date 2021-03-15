@@ -40,3 +40,45 @@ Drawing.prototype.paint = function (ctx) {
     eltDuTableau.paint(ctx);
   });
 };
+
+const shapes = new Map();
+
+Drawing.prototype.addShape = function (a, ctx) {
+  shapes.set(a, ctx);
+  a++;
+};
+
+/**
+ *  update shape list 
+ * @param {*} ctx 
+ * @param {*} canvas 
+ */
+Drawing.prototype.updateShapeList = function (ctx, canvas) {
+  shapeList = document.getElementById("shapeList");
+  shapeList.textContent = "";
+
+  for (let [index, shape] of shapes.entries()) {
+    let li = document.createElement("li");
+    li.style.color = shape.color;
+
+    let button = document.createElement("button");
+    button.type = "button";
+    button.innerHTML = index + 1 + " " + shape.type + "  ";
+    button.style = "color:" + shape.color;
+    button.classList.add("btn", "btn-default");
+
+    let span = document.createElement("span");
+    span.classList.add("glyphicon", "glyphicon-remove-sign");
+    button.append(span);
+
+    button.addEventListener("click", event => {
+      shapes.splice(index, 1);
+      this.paint(ctx, canvas);
+      this.updateShapeList(ctx, canvas);
+    });
+
+    li.append(button);
+    shapeList.append(li);
+  }
+};
+

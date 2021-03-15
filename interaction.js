@@ -48,14 +48,12 @@ function DnD(boundingObject, interactor) {
   
 	}.bind(this) ;
   
-  
-	this.relachement = function(evt) {
+ this.relachement = function(evt) {
 	  this.pression = false;
 	  this.finalX = getMousePosition(this.boundingObject,evt).x;
 	  this.finalY = getMousePosition(this.boundingObject,evt).y;
 	  this.interactor.interactionEnd(this);
 	}.bind(this) ;
-  
   
 	boundingObject.addEventListener('mousedown', this.press, false);
 	boundingObject.addEventListener('mousemove', this.deplacement, false);
@@ -64,12 +62,12 @@ function DnD(boundingObject, interactor) {
   
   };
   
-  
   function getMousePosition(can,evt) {
 	var rect = can.getBoundingClientRect();
 	return {
 	  x: evt.clientX - rect.left,
 	  y: evt.clientY - rect.top
 	};
+
   };
   
